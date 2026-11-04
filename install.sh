@@ -189,6 +189,8 @@ if os.path.exists(claude_md):
 
 if "claude-code-elevate:begin" in old_md:
     print("[install] CLAUDE.md 已有 claude-code-elevate 段落，保持不变")
+elif "elevate --intent" in old_md:
+    print("[install] CLAUDE.md 已包含 elevate 约定（无标记），保持不变")
 else:
     os.makedirs(os.path.dirname(claude_md), exist_ok=True)
     sep = "" if not old_md else ("\n" if old_md.endswith("\n") else "\n\n")
